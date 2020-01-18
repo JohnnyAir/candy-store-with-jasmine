@@ -21,4 +21,15 @@ describe("Candy store", function() {
       expect(store.getCandyStockCount("Gummy bears")).toBe(510);
     });
   });
+
+  describe("user removes `Gummy bears` from bin", function() {
+    it("should properly decrease `Gummy bears` stock count", function() {
+      store.removeCandy("Gummy bears", 20);
+      expect(store.getCandyStockCount("Gummy bears")).toBe(490);
+    });
+
+    it("should not decrease `Lollipops` stock count", function() {
+      expect(store.getCandyStockCount("Lollipops")).toBe(604);
+    });
+  });
 });
